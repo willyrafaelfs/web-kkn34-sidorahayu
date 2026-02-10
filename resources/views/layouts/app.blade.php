@@ -107,10 +107,10 @@
                     </p>
                     
                     <div class="mt-3">
-                        <a href="https://instagram.com/kkn34sidorahayu" target="_blank" class="text-white me-3 text-decoration-none">
+                        <a href="https://www.instagram.com/kknsidorahayu2026?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="text-white me-3 text-decoration-none">
                             <i class="bi bi-instagram fs-4"></i>
                         </a>
-                        <a href="https://tiktok.com/@kkn34sidorahayu" target="_blank" class="text-white text-decoration-none">
+                        <a href="https://www.tiktok.com/@kkn_sidorahayu34?is_from_webapp=1&sender_device=pc" target="_blank" class="text-white text-decoration-none">
                             <i class="bi bi-tiktok fs-4"></i>
                         </a>
     </div>
