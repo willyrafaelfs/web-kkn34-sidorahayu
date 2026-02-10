@@ -105,6 +105,15 @@
                         Mengabdi dengan hati di Desa Sidorahayu.<br>
                         Membangun desa, memajukan bangsa.
                     </p>
+                    
+                    <div class="mt-3">
+                        <a href="https://instagram.com/kkn34sidorahayu" target="_blank" class="text-white me-3 text-decoration-none">
+                            <i class="bi bi-instagram fs-4"></i>
+                        </a>
+                        <a href="https://tiktok.com/@kkn34sidorahayu" target="_blank" class="text-white text-decoration-none">
+                            <i class="bi bi-tiktok fs-4"></i>
+                        </a>
+    </div>
                 </div>
 
                 <div class="col-md-4 mb-4">
