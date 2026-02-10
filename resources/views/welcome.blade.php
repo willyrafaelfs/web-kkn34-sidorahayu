@@ -2,73 +2,209 @@
 
 @section('content')
 
-<header id="hero" class="text-center py-5">
-    <h1>Selamat Datang di Desa Sidorahayu</h1>
-    <p>KKN Kelompok 34 - Universitas ...</p>
-    <a href="#proker" class="btn btn-primary">Lihat Kegiatan Kami</a>
+<header id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+    </div>
+
+    <div class="carousel-inner">
+        <div class="carousel-item active" style="height: 500px;">
+            <div class="overlay" style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5);"></div>
+            <img src="https://placehold.co/1920x600" class="d-block w-100 h-100 object-fit-cover" alt="Desa Sidorahayu">
+            <div class="carousel-caption d-none d-md-block pb-5">
+                <h1 class="display-4 fw-bold">Selamat Datang di Desa Sidorahayu</h1>
+                <p class="lead">Mengabdi, Membangun, dan Memberdayakan Masyarakat.</p>
+                <a href="#proker" class="btn btn-warning btn-lg mt-3">Lihat Program Kami</a>
+            </div>
+        </div>
+
+        <div class="carousel-item" style="height: 500px;">
+            <div class="overlay" style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4);"></div>
+            <video class="d-block w-100 h-100 object-fit-cover" autoplay muted loop>
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            </video>
+            <div class="carousel-caption d-none d-md-block pb-5">
+                <h1 class="display-4 fw-bold">Potensi Hidroponik Desa</h1>
+                <p class="lead">Mewujudkan ketahanan pangan mandiri melalui teknologi pertanian modern.</p>
+            </div>
+        </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
 </header>
 
 <section id="proker" class="container py-5">
-    <h2 class="text-center mb-4">Program Unggulan</h2>
-    <div class="row">
-        @foreach($proker_utama as $proker)
-            <div class="col-md-6 mb-4">
-                <div class="card h-100">
-                    <img src="{{ $proker->image_path ? asset('storage/'.$proker->image_path) : 'https://placehold.co/600x400' }}" class="card-img-top" alt="{{ $proker->title }}">
-                    <div class="card-body">
-                        <h3>{{ $proker->title }}</h3>
-                        <p>{{Str::limit(strip_tags($proker->body), 100)}}</p>
-                        <a href="{{ route('posts.show', $proker->slug) }}" class="btn btn-outline-primary">Baca Selengkapnya</a>
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">Fokus Program Kerja</h2>
+        <p class="text-muted">Dua pilar utama pengabdian kami di Desa Sidorahayu.</p>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="card h-100 border-0 shadow hover-card overflow-hidden">
+                <div class="row g-0 h-100">
+                    <div class="col-md-6">
+                        <img src="https://placehold.co/400x400" class="img-fluid h-100 object-fit-cover" alt="Hidroponik">
+                    </div>
+                    <div class="col-md-6 d-flex align-items-center">
+                        <div class="card-body">
+                            <div class="badge bg-success mb-2">Ekonomi & Pangan</div>
+                            <h4 class="card-title fw-bold">Program Hidroponik</h4>
+                            <p class="card-text text-muted small">
+                                Pengembangan 500 lubang tanam sistem NFT dan pelatihan nutrisi AB Mix untuk warga.
+                            </p>
+                            <a href="{{ route('proker.show', 'proker-hidroponik') }}" class="btn btn-outline-success btn-sm stretched-link">
+                                Pelajari Selengkapnya
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        @endforeach
+        </div>
+
+        <div class="col-md-6">
+            <div class="card h-100 border-0 shadow hover-card overflow-hidden">
+                <div class="row g-0 h-100">
+                    <div class="col-md-6">
+                        <img src="https://placehold.co/400x401" class="img-fluid h-100 object-fit-cover" alt="Sekolah">
+                    </div>
+                    <div class="col-md-6 d-flex align-items-center">
+                        <div class="card-body">
+                            <div class="badge bg-primary mb-2">Pendidikan</div>
+                            <h4 class="card-title fw-bold">Sidorahayu Cerdas</h4>
+                            <p class="card-text text-muted small">
+                                Pendampingan belajar, sosialisasi anti-bullying, dan literasi digital di SDN Sidorahayu 1.
+                            </p>
+                            <a href="{{ route('proker.show', 'proker-sekolah') }}" class="btn btn-outline-primary btn-sm stretched-link">
+                                Pelajari Selengkapnya
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
 <section id="berita" class="bg-light py-5">
     <div class="container">
-        <h2 class="text-center mb-4">Kabar Terbaru</h2>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="fw-bold mb-0">Kabar Terbaru</h2>
+            <a href="{{ route('news') }}" class="btn btn-outline-secondary btn-sm">Lihat Semua Berita</a>
+        </div>
+        
         <div class="row">
             @foreach($latest_posts as $post)
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="{{ $post->image_path ? asset('storage/'.$post->image_path) : 'https://placehold.co/600x400' }}" class="card-img-top" alt="{{ $post->title }}">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="{{ $post->image_path ? asset('storage/'.$post->image_path) : 'https://placehold.co/600x400' }}" class="card-img-top" style="height: 200px; object-fit: cover;" alt="{{ $post->title }}">
                         <div class="card-body">
-                            <span class="badge bg-info">{{ $post->category->name }}</span>
-                            <h5 class="card-title mt-2">{{ $post->title }}</h5>
-                            <small class="text-muted">{{ $post->created_at->format('d M Y') }}</small>
+                            <div class="mb-2">
+                                <span class="badge bg-secondary">{{ $post->category->name }}</span>
+                                <small class="text-muted ms-2">{{ $post->created_at->format('d M Y') }}</small>
+                            </div>
+                            <h5 class="card-title fw-bold text-truncate">{{ $post->title }}</h5>
+                            <p class="card-text text-muted small">{{ Str::limit(strip_tags($post->excerpt), 80) }}</p>
                             <a href="{{ route('posts.show', $post->slug) }}" class="stretched-link"></a>
                         </div>
                     </div>
                 </div>
             @endforeach
         </div>
-        <div class="text-center mt-3">
-            <a href="{{ route('news') }}" class="btn btn-secondary">Lihat Semua Berita</a>
+    </div>
+</section>
+
+<section id="tim" class="py-5 bg-white">
+    <div class="container text-center">
+        <div class="mb-5">
+            <h2 class="fw-bold">Tim KKN Kelompok 34</h2>
+            <p class="text-muted">Mahasiswa Universitas ... yang mengabdi di Desa Sidorahayu.</p>
+        </div>
+
+        <div class="row justify-content-center">
+            @foreach($teams as $team)
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card h-100 border-0 shadow-sm py-3 hover-top">
+                        <div class="card-body">
+                            <img src="{{ $team->photo_path ? asset('storage/'.$team->photo_path) : 'https://placehold.co/150' }}" 
+                                 class="rounded-circle mb-3 border border-3 border-light shadow-sm" 
+                                 style="width: 120px; height: 120px; object-fit: cover;" 
+                                 alt="{{ $team->name }}">
+                            
+                            <h5 class="fw-bold mb-1">{{ $team->name }}</h5>
+                            <p class="text-primary small mb-2 fw-bold text-uppercase">{{ $team->position }}</p>
+                            <p class="text-muted small mb-0">{{ $team->major }}</p>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+
+        <div class="mt-4">
+            <a href="{{ route('team') }}" class="btn btn-outline-primary rounded-pill px-4">
+                Lihat Seluruh Anggota Tim <i class="bi bi-arrow-right ms-2"></i>
+            </a>
         </div>
     </div>
 </section>
 
-<section id="galeri" class="container py-5">
-    <h2 class="text-center mb-4">Dokumentasi & Media</h2>
-    <div class="row">
-        @foreach($galleries as $gallery)
-            <div class="col-md-4 mb-3">
-                <div class="card">
-                    @if($gallery->category == 'video' && $gallery->file_type == 'link')
-                        <div class="ratio ratio-16x9">
-                            <iframe src="{{ str_replace('watch?v=', 'embed/', $gallery->file_path) }}" allowfullscreen></iframe>
+<section class="py-5">
+    <div class="container text-center">
+        <h2 class="mb-4 fw-bold">Galeri Kegiatan</h2>
+        <div class="row g-2">
+            @foreach($galleries->take(4) as $gallery)
+                <div class="col-md-3 col-6">
+                    @if($gallery->category == 'video' || $gallery->file_type == 'link')
+                         <div class="ratio ratio-1x1">
+                            <iframe src="{{ str_replace('watch?v=', 'embed/', $gallery->file_path) }}" class="rounded"></iframe>
                         </div>
                     @else
-                        <img src="{{ asset('storage/'.$gallery->file_path) }}" class="img-fluid">
+                        <img src="{{ asset('storage/'.$gallery->file_path) }}" class="img-fluid rounded shadow-sm w-100 object-fit-cover" style="height: 200px;">
                     @endif
-                    <div class="card-body text-center">
-                        <h6>{{ $gallery->title }}</h6>
-                    </div>
                 </div>
+            @endforeach
+        </div>
+        <div class="mt-4">
+            <a href="{{ route('gallery') }}" class="btn btn-dark">Lihat Galeri Lengkap</a>
+        </div>
+    </div>
+</section>
+
+<section id="kontak" class="py-5 bg-white border-top">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h2 class="fw-bold">Ada Pertanyaan?</h2>
+                <p class="text-muted">Jangan ragu untuk menghubungi kami jika ada saran atau pertanyaan seputar program kerja KKN.</p>
+                </div>
+            <div class="col-md-6">
+                @if(session('success_message'))
+                    <div class="alert alert-success">{{ session('success_message') }}</div>
+                @endif
+                <form action="{{ route('messages.store') }}" method="POST" class="card p-4 shadow-sm border-0 bg-light">
+                    @csrf
+                    <div class="mb-3">
+                        <label>Nama Anda</label>
+                        <input type="text" name="name" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Kontak (Email/WA)</label>
+                        <input type="text" name="email" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Pesan</label>
+                        <textarea name="message" rows="3" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Kirim Pesan</button>
+                </form>
             </div>
-        @endforeach
+        </div>
     </div>
 </section>
 

@@ -10,10 +10,16 @@ use App\Http\Controllers\Auth\GoogleController; // <--- Jangan lupa import ini
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
+// RUTE KOMENTAR (Hanya bisa diakses kalau sudah login)
+Route::middleware(['auth'])->group(function () {
+    Route::post('/komentar', [App\Http\Controllers\CommentController::class, 'store'])->name('comments.store');
+});
+
 // --- HALAMAN PUBLIK (Bisa diakses siapa saja) ---
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/tim', [HomeController::class, 'team'])->name('team');
 Route::get('/berita', [HomeController::class, 'news'])->name('news');
+Route::post('/kirim-pesan', [App\Http\Controllers\MessageController::class, 'store'])->name('messages.store');
 
 // --- HALAMAN PUBLIK (Updated) ---
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -47,6 +53,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     // Nanti tambah route kelola berita, setting, dll di sini.
     Route::resource('posts', App\Http\Controllers\Admin\PostController::class, ['as' => 'admin']);
     // Nanti tambah route Galeri, Tim, Pesan di sini...
-
+    Route::resource('galleries', App\Http\Controllers\Admin\GalleryController::class, ['as' => 'admin']);
+    Route::get('/pesan-masuk', [App\Http\Controllers\MessageController::class, 'indexAdmin'])->name('admin.messages.index');
+    Route::delete('/pesan-masuk/{id}', [App\Http\Controllers\MessageController::class, 'destroy'])->name('admin.messages.destroy');
     Route::redirect('/home', '/');
 });

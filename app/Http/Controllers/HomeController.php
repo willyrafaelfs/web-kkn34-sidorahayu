@@ -14,16 +14,15 @@ class HomeController extends Controller
     {
         // 1. Ambil 3 Berita Terbaru
         $latest_posts = Post::with('category')->latest()->take(3)->get();
-        
-        // 2. Ambil Data Proker (Hidroponik & Sosialisasi) untuk di-highlight
-        // Kita asumsikan kategori ID 1 & 2 adalah proker utama (sesuai seeder)
-        $proker_utama = Post::whereIn('category_id', [1, 2])->latest()->take(2)->get();
 
-        // 3. Ambil Galeri (Video & Poster)
+        // 2. Ambil Galeri (Video & Poster)
         $galleries = Gallery::where('is_published', true)->get();
 
+        // 3. Ambil 4 Anggota Tim
+        $teams = \App\Models\Team::take(4)->get();
+
         // 4. Kirim semua data ke tampilan 'welcome'
-        return view('welcome', compact('latest_posts', 'proker_utama', 'galleries'));
+        return view('welcome', compact('latest_posts', 'galleries', 'teams'));
     }
 
     public function team()
@@ -49,6 +48,19 @@ class HomeController extends Controller
                         ->take(3)->get();
 
     return view('frontend.post_show', compact('post', 'related_posts'));
+
+    // UPDATE BARIS INI:
+        // Kita tambahkan 'comments.user' agar bisa ambil Foto & Nama pengomentar
+        $post = Post::with(['category', 'user', 'comments.user'])
+                    ->where('slug', $slug)
+                    ->firstOrFail();
+        
+        // ... (kode related_posts biarkan sama) ...
+        $related_posts = Post::where('category_id', $post->category_id)
+                        ->where('id', '!=', $post->id)
+                        ->take(3)->get();
+
+        return view('frontend.post_show', compact('post', 'related_posts'));
     }
 
     // HALAMAN PROFIL DESA
@@ -72,7 +84,7 @@ class HomeController extends Controller
         // Ambil semua berita yang kategorinya ini
         $posts = \App\Models\Post::where('category_id', $category->id)->latest()->paginate(9);
         
-        return view('frontend.news', compact('posts', 'category')); // Kita pakai tampilan berita aja biar hemat waktu
+        return view('frontend.proker', compact('category', 'posts')); // Kita pakai tampilan berita aja biar hemat waktu
     }
 
     // HALAMAN GALERI

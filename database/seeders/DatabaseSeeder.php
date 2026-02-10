@@ -31,9 +31,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         // 2. BUAT KATEGORI BERITA
-        $catHidroponik = Category::create(['name' => 'Hidroponik', 'slug' => 'hidroponik']);
-        $catSosialisasi = Category::create(['name' => 'Sosialisasi & Edukasi', 'slug' => 'sosialisasi-edukasi']);
-        $catKegiatan = Category::create(['name' => 'Kegiatan Desa', 'slug' => 'kegiatan-desa']);
+        $catHidroponik = Category::create(['name' => 'Program Hidroponik', 'slug' => 'proker-hidroponik']);
+        $catSekolah = Category::create(['name' => 'Program Sekolah & Edukasi', 'slug' => 'proker-sekolah']);
+        $catDesa = Category::create(['name' => 'Kegiatan Desa', 'slug' => 'kegiatan-desa']);
 
         // 3. BUAT CONTOH BERITA (DUMMY)
         Post::create([
@@ -48,7 +48,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Post::create([
-            'category_id' => $catSosialisasi->id,
+            'category_id' => $catSekolah->id,
             'user_id' => $admin->id,
             'title' => 'Sosialisasi Anti-Bullying di SDN Sidorahayu 1',
             'slug' => 'sosialisasi-anti-bullying-sdn-sidorahayu-1',
