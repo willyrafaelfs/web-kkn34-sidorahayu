@@ -85,6 +85,22 @@ class DatabaseSeeder extends Seeder
         SiteSetting::create(['key' => 'instagram_url', 'value' => 'https://instagram.com/kkn34sidorahayu', 'type' => 'text']);
         SiteSetting::create(['key' => 'youtube_url', 'value' => 'https://youtube.com/@kkn34', 'type' => 'text']);
 
+        // 1. PENGATURAN LOGO
+SiteSetting::create(['key' => 'logo_header_1', 'value' => null, 'type' => 'image']); // Logo Univ
+SiteSetting::create(['key' => 'logo_header_2', 'value' => null, 'type' => 'image']); // Logo Diktisaintek
+SiteSetting::create(['key' => 'logo_header_3', 'value' => null, 'type' => 'image']); // Logo Kampus Merdeka
+SiteSetting::create(['key' => 'logo_footer',   'value' => null, 'type' => 'image']); // Logo Kelompok
+
+// 2. PENGATURAN HERO (SLIDER DEPAN)
+SiteSetting::create(['key' => 'hero_image', 'value' => null, 'type' => 'image']); 
+SiteSetting::create(['key' => 'hero_video', 'value' => null, 'type' => 'file']); // Bisa upload video mp4
+
+// 3. PENGATURAN GAMBAR PROKER (Thumbnail & Banner)
+SiteSetting::create(['key' => 'proker_hidroponik_thumb',  'value' => null, 'type' => 'image']); // 400x400
+SiteSetting::create(['key' => 'proker_sekolah_thumb',     'value' => null, 'type' => 'image']); // 400x400
+SiteSetting::create(['key' => 'proker_hidroponik_banner', 'value' => null, 'type' => 'image']); // 800x400
+SiteSetting::create(['key' => 'proker_sekolah_banner',    'value' => null, 'type' => 'image']); // 800x400
+
         // 6. BUAT CONTOH GALERI
         Gallery::create([
             'title' => 'After Movie KKN',

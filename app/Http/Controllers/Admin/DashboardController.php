@@ -25,7 +25,10 @@ class DashboardController extends Controller
         // 4. Hitung Total Pengunjung (Semua Waktu)
         $total_visitors = Visitor::count();
 
+        // 5. Hitung Total Tim
+        $total_team = \App\Models\Team::count();
+
         // Kirim data ke view 'admin.dashboard'
-        return view('admin.dashboard', compact('total_posts', 'unread_messages', 'today_visitors', 'total_visitors'));
+        return view('admin.dashboard', compact('total_posts', 'unread_messages', 'today_visitors', 'total_visitors', 'total_team'));
     }
 }

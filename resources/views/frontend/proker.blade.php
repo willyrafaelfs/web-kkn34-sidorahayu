@@ -13,14 +13,14 @@
                 Fokus utama KKN kami: Mengembangkan pertanian modern.
                 Kegiatan mencakup pembangunan instalasi, pelatihan nutrisi, hingga sosialisasi pemasaran hasil panen sawi pakcoy.
             </p>
-            <img src="https://placehold.co/800x400" class="img-fluid rounded shadow mt-3">
+            <img src="{{ $sets['proker_hidroponik_banner'] ? asset('storage/'.$sets['proker_hidroponik_banner']) : 'https://placehold.co/800x400' }}" class="img-fluid rounded shadow mt-3">
         
         @elseif($category->slug == 'proker-sekolah')
             <p class="lead">
                 Program pengabdian di SDN Sidorahayu 1. 
                 Fokus pada pembangunan karakter siswa melalui sosialisasi anti-bullying, literasi digital, dan fun learning.
             </p>
-            <img src="https://placehold.co/800x400" class="img-fluid rounded shadow mt-3">
+            <img src="{{ $sets['proker_sekolah_banner'] ? asset('storage/'.$sets['proker_sekolah_banner']) : 'https://placehold.co/800x400' }}" class="img-fluid rounded shadow mt-3">
         
         @else
             <p class="lead">Berikut adalah dokumentasi kegiatan kami untuk program {{ $category->name }}.</p>

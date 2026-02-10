@@ -56,5 +56,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::resource('galleries', App\Http\Controllers\Admin\GalleryController::class, ['as' => 'admin']);
     Route::get('/pesan-masuk', [App\Http\Controllers\MessageController::class, 'indexAdmin'])->name('admin.messages.index');
     Route::delete('/pesan-masuk/{id}', [App\Http\Controllers\MessageController::class, 'destroy'])->name('admin.messages.destroy');
+    Route::resource('teams', App\Http\Controllers\Admin\TeamController::class, ['as' => 'admin']);
+    // PENGATURAN TAMPILAN
+    Route::get('/settings', [App\Http\Controllers\Admin\SiteSettingController::class, 'index'])->name('admin.settings.index');
+    Route::put('/settings', [App\Http\Controllers\Admin\SiteSettingController::class, 'update'])->name('admin.settings.update');
     Route::redirect('/home', '/');
 });

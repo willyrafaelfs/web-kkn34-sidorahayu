@@ -18,9 +18,9 @@
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="{{ route('home') }}">
                 <div class="d-flex gap-2 me-2">
-                    <img src="https://placehold.co/40" alt="Logo Univ" title="Universitas" style="height: 40px;">
-                    <img src="https://placehold.co/40" alt="Logo Diktisaintek" title="Diktisaintek" style="height: 40px;">
-                    <img src="https://placehold.co/40" alt="Logo Kampus Merdeka" title="Kampus Merdeka" style="height: 40px;">
+                    <img src="{{ $sets['logo_header_1'] ? asset('storage/'.$sets['logo_header_1']) : 'https://placehold.co/40' }}" style="height: 40px;">
+                    <img src="{{ $sets['logo_header_2'] ? asset('storage/'.$sets['logo_header_2']) : 'https://placehold.co/40' }}" style="height: 40px;">
+                    <img src="{{ $sets['logo_header_3'] ? asset('storage/'.$sets['logo_header_3']) : 'https://placehold.co/40' }}" style="height: 40px;">
                 </div>
                 <div class="d-none d-md-block ms-2 lh-1">
                     <span class="d-block fw-bold" style="font-size: 0.9rem;">KKN KELOMPOK 34</span>
@@ -99,7 +99,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-4">
-                    <img src="https://placehold.co/60" alt="Logo KKN 34" class="mb-3 rounded-circle">
+                    <img src="{{ isset($sets['logo_footer']) && $sets['logo_footer'] ? asset('storage/'.$sets['logo_footer']) : 'https://placehold.co/80' }}" 
+         alt="Logo Kelompok" 
+         class="mb-3 rounded-circle bg-white p-1" 
+         style="width: 40px; height: 40px; object-fit: contain;">
                     <h5 class="fw-bold">KKN KELOMPOK 34</h5>
                     <p class="small text-white-50">
                         Mengabdi dengan hati di Desa Sidorahayu.<br>

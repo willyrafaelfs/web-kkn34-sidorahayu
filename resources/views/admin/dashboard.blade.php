@@ -90,7 +90,39 @@
                 </div>
             </a>
         </div>
+
+        <div class="col-md-4 mb-3">
+            <a href="{{ route('admin.teams.index') }}" class="text-decoration-none">
+                    <div class="card h-100 hover-shadow">
+                        <div class="card-body d-flex align-items-center">
+                            <div class="bg-info text-white rounded-circle p-3 me-3">
+                                <i class="bi bi-people fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="card-title mb-0 text-dark">Tim KKN</h5>
+                                <small class="text-muted">{{ $total_team }} Anggota Terdaftar</small>
+                            </div>
+                        </div>
+                    </div>
+            </a>
+        </div>
     </div>
+
+    <div class="col-md-4 mb-3">
+    <a href="{{ route('admin.settings.index') }}" class="text-decoration-none">
+        <div class="card h-100 hover-shadow">
+            <div class="card-body d-flex align-items-center">
+                <div class="bg-secondary text-white rounded-circle p-3 me-3">
+                    <i class="bi bi-gear-fill fs-4"></i>
+                </div>
+                <div>
+                    <h5 class="card-title mb-0 text-dark">Pengaturan</h5>
+                    <small class="text-muted">Logo, Banner & Tampilan</small>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
     
     <div class="mt-5 text-center">
         <a href="{{ route('home') }}" class="btn btn-outline-secondary">

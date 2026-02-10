@@ -11,7 +11,7 @@
     <div class="carousel-inner">
         <div class="carousel-item active" style="height: 500px;">
             <div class="overlay" style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5);"></div>
-            <img src="https://placehold.co/1920x600" class="d-block w-100 h-100 object-fit-cover" alt="Desa Sidorahayu">
+            <img src="{{ $sets['hero_image'] ? asset('storage/'.$sets['hero_image']) : 'https://placehold.co/1920x600' }}" class="d-block w-100 h-100 object-fit-cover" alt="Desa Sidorahayu">
             <div class="carousel-caption d-none d-md-block pb-5">
                 <h1 class="display-4 fw-bold">Selamat Datang di Desa Sidorahayu</h1>
                 <p class="lead">Mengabdi, Membangun, dan Memberdayakan Masyarakat.</p>
@@ -22,7 +22,7 @@
         <div class="carousel-item" style="height: 500px;">
             <div class="overlay" style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4);"></div>
             <video class="d-block w-100 h-100 object-fit-cover" autoplay muted loop>
-                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                <source src="{{ $sets['hero_video'] ? asset('storage/'.$sets['hero_video']) : 'https://www.w3schools.com/html/mov_bbb.mp4' }}" type="video/mp4">
             </video>
             <div class="carousel-caption d-none d-md-block pb-5">
                 <h1 class="display-4 fw-bold">Potensi Hidroponik Desa</h1>
@@ -50,14 +50,14 @@
             <div class="card h-100 border-0 shadow hover-card overflow-hidden">
                 <div class="row g-0 h-100">
                     <div class="col-md-6">
-                        <img src="https://placehold.co/400x400" class="img-fluid h-100 object-fit-cover" alt="Hidroponik">
+                        <img src="{{ $sets['proker_hidroponik_thumb'] ? asset('storage/'.$sets['proker_hidroponik_thumb']) : 'https://placehold.co/400x400' }}" class="img-fluid h-100 object-fit-cover" alt="Hidroponik">
                     </div>
                     <div class="col-md-6 d-flex align-items-center">
                         <div class="card-body">
                             <div class="badge bg-success mb-2">Ekonomi & Pangan</div>
                             <h4 class="card-title fw-bold">Program Hidroponik</h4>
                             <p class="card-text text-muted small">
-                                Pengembangan 500 lubang tanam sistem NFT dan pelatihan nutrisi AB Mix untuk warga.
+                                Pengembangan 100 lubang tanam sistem DFT dan pelatihan nutrisi AB Mix untuk warga oleh bombang.
                             </p>
                             <a href="{{ route('proker.show', 'proker-hidroponik') }}" class="btn btn-outline-success btn-sm stretched-link">
                                 Pelajari Selengkapnya
@@ -72,14 +72,14 @@
             <div class="card h-100 border-0 shadow hover-card overflow-hidden">
                 <div class="row g-0 h-100">
                     <div class="col-md-6">
-                        <img src="https://placehold.co/400x401" class="img-fluid h-100 object-fit-cover" alt="Sekolah">
+                        <img src="{{ $sets['proker_sekolah_thumb'] ? asset('storage/'.$sets['proker_sekolah_thumb']) : 'https://placehold.co/400x401' }}" class="img-fluid h-100 object-fit-cover" alt="Sekolah">
                     </div>
                     <div class="col-md-6 d-flex align-items-center">
                         <div class="card-body">
                             <div class="badge bg-primary mb-2">Pendidikan</div>
                             <h4 class="card-title fw-bold">Sidorahayu Cerdas</h4>
                             <p class="card-text text-muted small">
-                                Pendampingan belajar, sosialisasi anti-bullying, dan literasi digital di SDN Sidorahayu 1.
+                                Pendampingan belajar, sosialisasi peduli lingkungan, dan makanan sehat di SDN 3 Sidorahayu.
                             </p>
                             <a href="{{ route('proker.show', 'proker-sekolah') }}" class="btn btn-outline-primary btn-sm stretched-link">
                                 Pelajari Selengkapnya
