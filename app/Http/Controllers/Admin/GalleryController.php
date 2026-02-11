@@ -27,7 +27,7 @@ class GalleryController extends Controller
             'category' => 'required', // photo, video, poster
             'file_type' => 'required', // upload, link
             // Validasi dinamis: Kalau pilih upload, wajib ada file. Kalau link, wajib ada url.
-            'file' => 'nullable|image|max:2048', 
+            'file' => 'nullable|mimes:jpeg,png,jpg,mp4,mov,avi|max:204800', // Maks 200MB
             'link' => 'nullable|url',
         ]);
 

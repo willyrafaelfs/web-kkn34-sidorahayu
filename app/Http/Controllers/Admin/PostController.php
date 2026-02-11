@@ -73,7 +73,7 @@ class PostController extends Controller
             'title' => 'required|max:255',
             'category_id' => 'required',
             'body' => 'required',
-            'image' => 'nullable|image|max:2048',
+            'image' => 'nullable|image|max:10240',
         ]);
 
         // Cek apakah admin upload gambar baru?

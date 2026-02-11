@@ -134,15 +134,15 @@
                     <ul class="list-unstyled">
                         <li class="mb-2">
                             <i class="bi bi-envelope me-2 text-warning"></i> 
-                            <a href="mailto:kkn34@univ.ac.id" class="text-white text-decoration-none">kkn34@univ.ac.id</a>
+                            <a href="mailto:kkn34@univ.ac.id" class="text-white text-decoration-none">kkn34sidorahayu@gmail.com</a>
                         </li>
                         <li class="mb-2">
                             <i class="bi bi-whatsapp me-2 text-success"></i> 
-                            <a href="https://wa.me/6281234567890" class="text-white text-decoration-none">+62 812-3456-7890</a>
+                            <a href="https://wa.me/6282267039811" class="text-white text-decoration-none">08 berapa dek?</a>
                         </li>
                         <li class="mb-2">
                             <i class="bi bi-geo-alt me-2 text-danger"></i> 
-                            <span class="text-white-50">Posko: Dusun Tulus Ayu, Sidorahayu</span>
+                            <span class="text-white-50">Posko: Dusun Tulus Ayu, Desa Sidorahayu</span>
                         </li>
                     </ul>
                 </div>
@@ -151,9 +151,9 @@
             <hr class="border-secondary">
             
             <div class="d-flex justify-content-between align-items-center flex-wrap">
-                <small>&copy; 2026 KKN Kelompok 34. All rights reserved.</small>
+                <small>&copy; 2026 KKN Kelompok 34 - Universitas Merdeka Malang. All rights reserved.</small>
                 <small>
-                    <a href="{{ route('login') }}" class="text-secondary text-decoration-none ms-2">(Admin Login)</a>
+                    <a href="{{ route('login') }}" class="text-secondary text-decoration-none ms-2">Admin Area</a>
                 </small>
             </div>
         </div>

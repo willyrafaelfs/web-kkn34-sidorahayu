@@ -34,8 +34,8 @@
                 </div>
 
                 <div class="mb-3" id="input_upload">
-                    <label>Pilih File Foto</label>
-                    <input type="file" name="file" class="form-control" accept="image/*">
+                    <label>Pilih File Foto/Video</label>
+                    <input type="file" name="file" class="form-control" accept="image/*,video/mp4,video/quicktime,video/x-msvideo">
                 </div>
 
                 <div class="mb-3 d-none" id="input_link">

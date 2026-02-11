@@ -26,7 +26,7 @@ class TeamController extends Controller
             'name' => 'required',
             'nim' => 'required',
             'position' => 'required',
-            'photo' => 'image|mimes:jpeg,png,jpg|max:2048', // Maks 2MB
+            'photo' => 'image|mimes:jpeg,png,jpg|max:10240', // Maks 10MB
         ]);
 
         $photoPath = null;

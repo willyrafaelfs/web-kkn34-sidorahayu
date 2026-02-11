@@ -63,12 +63,23 @@
                         </div>
                         <div class="mb-3">
                             <label>Video Background (MP4)</label>
-                            <input type="file" name="hero_video" class="form-control mb-2" accept="video/mp4">
+                            <input type="file" name="hero_video" class="form-control mb-2" accept="video/mp4,mov">
                             @if($settings['hero_video'])
                                 <small class="text-success">Video tersimpan.</small>
                             @endif
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header bg-warning text-dark">Halaman Profil Desa</div>
+                <div class="card-body">
+                    <label>Gambar Utama Profil Desa (800x400)</label>
+                    <input type="file" name="profil_desa_image" class="form-control mb-2">
+                    @if($settings['profil_desa_image'])
+                        <img src="{{ asset('storage/'.$settings['profil_desa_image']) }}" width="200" class="rounded">
+                    @endif
                 </div>
             </div>
 

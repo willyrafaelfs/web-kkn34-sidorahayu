@@ -9,9 +9,9 @@
     </div>
 
     <div class="carousel-inner">
-        <div class="carousel-item active" style="height: 500px;">
+        <div class="carousel-item active" style="height: 750px;">
             <div class="overlay" style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5);"></div>
-            <img src="{{ $sets['hero_image'] ? asset('storage/'.$sets['hero_image']) : 'https://placehold.co/1920x600' }}" class="d-block w-100 h-100 object-fit-cover" alt="Desa Sidorahayu">
+            <img src="{{ $sets['hero_image'] ? asset('storage/'.$sets['hero_image']) : 'https://placehold.co/1920x750' }}" class="d-block w-100 h-100 object-fit-cover" alt="Desa Sidorahayu">
             <div class="carousel-caption d-none d-md-block pb-5">
                 <h1 class="display-4 fw-bold">Selamat Datang di Desa Sidorahayu</h1>
                 <p class="lead">Mengabdi, Membangun, dan Memberdayakan Masyarakat.</p>
@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <div class="carousel-item" style="height: 500px;">
+        <div class="carousel-item" style="height: 750px;">
             <div class="overlay" style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4);"></div>
             <video class="d-block w-100 h-100 object-fit-cover" autoplay muted loop>
                 <source src="{{ $sets['hero_video'] ? asset('storage/'.$sets['hero_video']) : 'https://www.w3schools.com/html/mov_bbb.mp4' }}" type="video/mp4">
@@ -124,7 +124,7 @@
     <div class="container text-center">
         <div class="mb-5">
             <h2 class="fw-bold">Tim KKN Kelompok 34</h2>
-            <p class="text-muted">Mahasiswa Universitas ... yang mengabdi di Desa Sidorahayu.</p>
+            <p class="text-muted">DPL dan Mahasiswa Universitas Merdeka Malang yang mengabdi di Desa Sidorahayu.</p>
         </div>
 
         <div class="row justify-content-center">
@@ -160,13 +160,35 @@
         <div class="row g-2">
             @foreach($galleries->take(4) as $gallery)
                 <div class="col-md-3 col-6">
-                    @if($gallery->category == 'video' || $gallery->file_type == 'link')
-                         <div class="ratio ratio-1x1">
-                            <iframe src="{{ str_replace('watch?v=', 'embed/', $gallery->file_path) }}" class="rounded"></iframe>
+                    
+                    {{-- Logika Pintar: Cek Tipe Sumber DULU --}}
+                    
+                    @if($gallery->file_type == 'link')
+                        <div class="ratio ratio-1x1">
+                            {{-- Kita pakai str_replace manual disini biar aman kalau Accessor belum dibuat --}}
+                            <iframe src="{{ str_replace('watch?v=', 'embed/', $gallery->file_path) }}" class="rounded shadow-sm" allowfullscreen></iframe>
                         </div>
-                    @else
-                        <img src="{{ asset('storage/'.$gallery->file_path) }}" class="img-fluid rounded shadow-sm w-100 object-fit-cover" style="height: 200px;">
+
+                    @elseif($gallery->file_type == 'upload')
+                        
+                        @php
+                            // Cek akhiran file (mp4, jpg, dll)
+                            $ext = pathinfo($gallery->file_path, PATHINFO_EXTENSION);
+                        @endphp
+
+                        @if(in_array(strtolower($ext), ['mp4', 'mov', 'avi']))
+                            <div class="ratio ratio-1x1">
+                                <video src="{{ asset('storage/'.$gallery->file_path) }}" class="rounded shadow-sm object-fit-cover w-100 h-100 bg-dark" controls></video>
+                            </div>
+                        
+                        @else
+                            <div class="ratio ratio-1x1">
+                                <img src="{{ asset('storage/'.$gallery->file_path) }}" class="rounded shadow-sm object-fit-cover w-100 h-100" alt="{{ $gallery->title }}">
+                            </div>
+                        @endif
+
                     @endif
+
                 </div>
             @endforeach
         </div>

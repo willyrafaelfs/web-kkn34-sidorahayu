@@ -7,13 +7,13 @@
             <div class="text-center mb-5">
                 <h1 class="fw-bold">Profil Desa Sidorahayu</h1>
                 <p class="text-muted">Kecamatan Wagir, Kabupaten Malang, Jawa Timur</p>
-                <img src="https://placehold.co/800x400" class="img-fluid rounded shadow-sm mt-3" alt="Kantor Desa">
+                <img src="{{ isset($sets['profil_desa_image']) && $sets['profil_desa_image'] ? asset('storage/'.$sets['profil_desa_image']) : 'https://placehold.co/800x400' }}" class="img-fluid rounded shadow-sm mt-3" alt="Kantor Desa">
             </div>
 
             <div class="mb-5">
                 <h3>Sejarah Singkat</h3>
                 <p>Desa Sidorahayu adalah salah satu desa di wilayah Kecamatan Wagir yang memiliki potensi pertanian yang besar...</p>
-                <p><i>(Isi dengan sejarah desa yang kamu dapat saat survei nanti)</i></p>
+                <p><i>(king)</i></p>
             </div>
 
             <div class="row">

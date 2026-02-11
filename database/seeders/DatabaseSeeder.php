@@ -90,6 +90,7 @@ SiteSetting::create(['key' => 'logo_header_1', 'value' => null, 'type' => 'image
 SiteSetting::create(['key' => 'logo_header_2', 'value' => null, 'type' => 'image']); // Logo Diktisaintek
 SiteSetting::create(['key' => 'logo_header_3', 'value' => null, 'type' => 'image']); // Logo Kampus Merdeka
 SiteSetting::create(['key' => 'logo_footer',   'value' => null, 'type' => 'image']); // Logo Kelompok
+SiteSetting::create(['key' => 'profil_desa_image', 'value' => null, 'type' => 'image']);
 
 // 2. PENGATURAN HERO (SLIDER DEPAN)
 SiteSetting::create(['key' => 'hero_image', 'value' => null, 'type' => 'image']); 
