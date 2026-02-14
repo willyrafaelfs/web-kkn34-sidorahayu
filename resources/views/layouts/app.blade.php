@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    @vite(['resources/css/custom.css'])
+
 
     @stack('styles')
 </head>
@@ -134,7 +136,7 @@
                     <ul class="list-unstyled">
                         <li class="mb-2">
                             <i class="bi bi-envelope me-2 text-warning"></i> 
-                            <a href="mailto:kkn34@univ.ac.id" class="text-white text-decoration-none">kkndesasidorahayu34@gmail.com</a>
+                            <a href="mailto:kkndesasidorahayu34@gmail.com" class="text-white text-decoration-none">kkndesasidorahayu34@gmail.com</a>
                         </li>
                         <li class="mb-2">
                             <i class="bi bi-whatsapp me-2 text-success"></i> 
@@ -216,6 +218,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    @vite('resources/js/custom.js')
     @stack('scripts')
 </body>
 </html>
