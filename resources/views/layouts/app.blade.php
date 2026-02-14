@@ -9,9 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-    @vite(['resources/css/custom.css'])
-
-
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet"> 
     @stack('styles')
 </head>
 <body class="d-flex flex-column min-vh-100">
@@ -218,7 +216,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-    @vite('resources/js/custom.js')
+    <script src="{{ asset('js/custom.js') }}"></script>
     @stack('scripts')
 </body>
 </html>
