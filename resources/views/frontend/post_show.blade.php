@@ -29,6 +29,14 @@
                             <h6 class="mt-0 mb-0 fw-bold">{{ $comment->user->name }}</h6>
                             <small class="text-muted">{{ $comment->created_at->diffForHumans() }}</small>
                             <p class="mt-1 mb-0">{{ $comment->body }}</p>
+@if(Auth::check() && (Auth::id() == $comment->user_id || Auth::user()->role == 'admin'))
+            <form action="{{ route('comments.destroy', $comment->id) }}" method="POST" onsubmit="return confirm('Yakin hapus?')">
+                @csrf @method('DELETE')
+                <button type="submit" class="btn btn-link text-danger p-0 ms-2" style="font-size: 0.8rem; text-decoration: none;">
+                    <small>Hapus</small>
+                </button>
+            </form>
+        @endif
                         </div>
                     </div>
                 @empty

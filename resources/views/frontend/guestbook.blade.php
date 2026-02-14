@@ -3,15 +3,15 @@
 @section('content')
 <div class="container py-5">
     <div class="text-center mb-5">
-        <h1>Buku Tamu Digital</h1>
-        <p>Silakan isi daftar hadir atau tinggalkan pesan kesan untuk KKN Kelompok 34.</p>
+        <h1>Sapa Kami</h1>
+        <p>Silakan tinggalkan pesan kesan untuk KKN Kelompok 34.</p>
     </div>
 
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card shadow">
                 <div class="card-header bg-primary text-white">
-                    Isi Buku Tamu
+                    Isi Form
                 </div>
                 <div class="card-body">
                     @if(session('success_message'))

@@ -9,15 +9,18 @@ class Comment extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['post_id', 'user_id', 'body', 'is_visible'];
+    // Pastikan ini ada agar bisa create data
+    protected $guarded = []; 
 
-    public function post()
-    {
-        return $this->belongsTo(Post::class);
-    }
-
+    // 1. RELASI KE USER (Komentar milik User siapa?)
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    // 2. RELASI KE POST (Komentar ini ada di Berita mana?)
+    public function post()
+    {
+        return $this->belongsTo(Post::class);
     }
 }

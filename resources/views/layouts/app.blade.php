@@ -61,7 +61,7 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item"><a class="nav-link" href="{{ route('guestbook') }}">Buku Tamu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('guestbook') }}">Sapa Kami</a></li>
 
                     <li class="nav-item ms-lg-3">
                         @guest
@@ -125,7 +125,7 @@
                         <li><a href="{{ route('home') }}" class="text-white-50 text-decoration-none">Beranda</a></li>
                         <li><a href="{{ route('profil.desa') }}" class="text-white-50 text-decoration-none">Profil Desa</a></li>
                         <li><a href="{{ route('news') }}" class="text-white-50 text-decoration-none">Berita Terkini</a></li>
-                        <li><a href="{{ route('guestbook') }}" class="text-white-50 text-decoration-none">Buku Tamu</a></li>
+                        <li><a href="{{ route('guestbook') }}" class="text-white-50 text-decoration-none">Sapa Kami</a></li>
                     </ul>
                 </div>
 
@@ -134,7 +134,7 @@
                     <ul class="list-unstyled">
                         <li class="mb-2">
                             <i class="bi bi-envelope me-2 text-warning"></i> 
-                            <a href="mailto:kkn34@univ.ac.id" class="text-white text-decoration-none">kkn34sidorahayu@gmail.com</a>
+                            <a href="mailto:kkn34@univ.ac.id" class="text-white text-decoration-none">kkndesasidorahayu34@gmail.com</a>
                         </li>
                         <li class="mb-2">
                             <i class="bi bi-whatsapp me-2 text-success"></i> 
@@ -144,6 +144,60 @@
                             <i class="bi bi-geo-alt me-2 text-danger"></i> 
                             <span class="text-white-50">Posko: Dusun Tulus Ayu, Desa Sidorahayu</span>
                         </li>
+<!-- Footer Credit Section -->
+<div class="mt-5 pt-4 border-top border-secondary text-center">
+    <p class="text-white-50" style="font-size: 0.85rem; letter-spacing: 0.5px;">
+        Designed & Developed by
+        <i class="bi bi-heart-fill text-danger heartbeat" 
+           style="cursor: help;" 
+           title="Dibuat dengan begadang"></i> 
+        by 
+        <a href="https://www.instagram.com/pistarr.7/?__pwa=1#" target="_blank" class="text-warning text-decoration-none credit-link">
+            Willy Rafael
+        </a>
+    </p>
+</div>
+
+<style>
+    .heartbeat {
+        display: inline-block;
+        animation: heartBeat 1.5s ease-in-out infinite;
+    }
+
+    @keyframes heartBeat {
+        0%, 70%, 100% { transform: scale(1); }
+        14% { transform: scale(1.25); }
+        28% { transform: scale(1); }
+        42% { transform: scale(1.25); }
+    }
+
+    .credit-link {
+        font-weight: 600;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .credit-link:hover {
+        color: #ffffff !important;
+        text-shadow: 0 0 10px rgba(255, 193, 7, 0.8);
+    }
+    
+    .credit-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 1px;
+        bottom: -2px;
+        left: 0;
+        background-color: #ffc107;
+        transition: width 0.3s;
+    }
+    
+    .credit-link:hover::after {
+        width: 100%;
+    }
+</style>
+
                     </ul>
                 </div>
             </div>

@@ -37,7 +37,7 @@
                         <div class="mb-3">
                             <label class="form-label">Isi Berita</label>
                             <textarea name="body" id="summernote" rows="10" class="form-control @error('body') is-invalid @enderror" required>{{ old('body') }}</textarea>
-                            <small class="text-muted">*Nanti bagian ini kita pasang text editor canggih.</small>
+                            <small class="text-muted">Willy Rafael</small>
                         </div>
 
                         <div class="d-flex justify-content-between">

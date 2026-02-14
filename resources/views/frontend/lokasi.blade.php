@@ -24,12 +24,12 @@
         <div class="col-md-4 text-center">
             <i class="bi bi-map fs-1 text-primary"></i>
             <h5 class="mt-3">Jarak dari Kampus</h5>
-            <p>± 15 Kilometer<br>(Sekitar 30 menit perjalanan)</p>
+            <p>± 7 Kilometer<br>(Sekitar 15 menit perjalanan)</p>
         </div>
         <div class="col-md-4 text-center">
             <i class="bi bi-pin-map fs-1 text-success"></i>
             <h5 class="mt-3">Program Utama</h5>
-            <p>Area Perkebunan Hidroponik<br>SDN Sidorahayu 1</p>
+            <p>Tanaman Hidroponik<br>Sosialisasi di SDN 03 Sidorahayu</p>
         </div>
     </div>
 </div>

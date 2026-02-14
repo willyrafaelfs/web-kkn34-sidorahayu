@@ -11,7 +11,7 @@
         @if($category->slug == 'proker-hidroponik')
             <p class="lead">
                 Fokus utama KKN kami: Mengembangkan pertanian modern.
-                Kegiatan mencakup pembangunan instalasi, pelatihan nutrisi, hingga sosialisasi pemasaran hasil panen sawi pakcoy.
+                Kegiatan mencakup pembangunan instalasi, pelatihan nutrisi, hingga sosialisasi pemasaran hasil panen selada.
             </p>
             <img src="{{ $sets['proker_hidroponik_banner'] ? asset('storage/'.$sets['proker_hidroponik_banner']) : 'https://placehold.co/800x400' }}" class="img-fluid rounded shadow mt-3">
         

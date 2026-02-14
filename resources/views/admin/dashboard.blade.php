@@ -91,6 +91,22 @@
             </a>
         </div>
 
+<div class="col-md-4 mb-3">
+    <a href="{{ route('admin.comments.index') }}" class="text-decoration-none">
+        <div class="card h-100 hover-shadow">
+            <div class="card-body d-flex align-items-center">
+                <div class="bg-warning text-dark rounded-circle p-3 me-3">
+                    <i class="bi bi-chat-dots-fill fs-4"></i>
+                </div>
+                <div>
+                    <h5 class="card-title mb-0 text-dark">Komentar Berita</h5>
+                    <small class="text-muted">Moderasi Diskusi</small>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
         <div class="col-md-4 mb-3">
             <a href="{{ route('admin.teams.index') }}" class="text-decoration-none">
                     <div class="card h-100 hover-shadow">
