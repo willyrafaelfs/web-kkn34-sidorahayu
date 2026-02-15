@@ -9,17 +9,17 @@
     </div>
 
     <div class="carousel-inner">
-        <div class="carousel-item active" style="height: 880px;">
+        <div class="carousel-item active" style="height: 800px;">
             <div class="overlay" style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5);"></div>
             <img src="{{ $sets['hero_image'] ? asset('storage/'.$sets['hero_image']) : 'https://placehold.co/1920x750' }}" class="d-block w-100 h-100 object-fit-cover" alt="Desa Sidorahayu">
             <div class="carousel-caption d-none d-md-block pb-5">
-                <h1 class="display-4 fw-bold">Selamat Datang di Desa Sidorahayu</h1>
-                <p class="lead">Mengabdi, Membangun, dan Memberdayakan Masyarakat.</p>
+                <h1 class="display-4 fw-bold">SELAMAT DATANG DI DESA SIDORAHAYU</h1>
+                <p class="lead">MEMBANGUN DIRI🌟, MEMBANGUN DESA🏗️.</p>
                 <a href="#proker" class="btn btn-warning btn-lg mt-3">Lihat Program Kami</a>
             </div>
         </div>
 
-        <div class="carousel-item" style="height: 880px;">
+        <div class="carousel-item" style="height: 800px;">
             <div class="overlay" style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4);"></div>
             <video class="d-block w-100 h-100 object-fit-cover" autoplay muted loop>
                 <source src="{{ $sets['hero_video'] ? asset('storage/'.$sets['hero_video']) : 'https://www.w3schools.com/html/mov_bbb.mp4' }}" type="video/mp4">
@@ -41,7 +41,7 @@
 
 <section id="proker" class="container py-5">
     <div class="text-center mb-5">
-        <h2 class="fw-bold">Fokus Program Kerja</h2>
+        <P><h2 class="fw-bold">Fokus Program Kerja</h2></P>
         <p class="text-muted">Dua pilar utama pengabdian kami di Desa Sidorahayu.</p>
     </div>
 
