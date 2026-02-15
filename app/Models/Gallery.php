@@ -11,24 +11,60 @@ class Gallery extends Model
 
     protected $fillable = ['title', 'category', 'file_type', 'file_path', 'description', 'is_published'];
 
-    // ACCESOR BARU: Otomatis generate link Youtube Embed
-    public function getYoutubeEmbedAttribute()
+    // Ambil YouTube ID dari berbagai format
+    public function getYoutubeIdAttribute()
     {
         $url = $this->file_path;
-        
-        // Cek link pendek (youtu.be)
-        if (strpos($url, 'youtu.be') !== false) {
-            $id = substr(parse_url($url, PHP_URL_PATH), 1);
-            return 'https://www.youtube.com/embed/' . $id;
-        }
-        
-        // Cek link biasa (youtube.com/watch?v=...)
-        if (strpos($url, 'watch?v=') !== false) {
-            parse_str(parse_url($url, PHP_URL_QUERY), $params);
-            return 'https://www.youtube.com/embed/' . ($params['v'] ?? '');
+        if (!$url) return null;
+
+        $url = trim($url);
+
+        // Jika sudah hanya ID
+        if (preg_match('/^[A-Za-z0-9_-]{11}$/', $url)) {
+            return $url;
         }
 
-        // Kalau sudah link embed atau format lain, kembalikan aslinya
-        return $url;
+        // youtu.be/ID
+        if (preg_match('/youtu\.be\/([A-Za-z0-9_-]{11})/', $url, $m)) {
+            return $m[1];
+        }
+
+        // youtube.com/watch?v=ID
+        if (preg_match('/v=([A-Za-z0-9_-]{11})/', $url, $m)) {
+            return $m[1];
+        }
+
+        // embed/ID
+        if (preg_match('/embed\/([A-Za-z0-9_-]{11})/', $url, $m)) {
+            return $m[1];
+        }
+
+        // fallback: cari pola ID di string
+        if (preg_match('/([A-Za-z0-9_-]{11})/', $url, $m)) {
+            return $m[1];
+        }
+
+        return null;
+    }
+
+    // URL embed yang aman untuk iframe
+    public function getYoutubeEmbedAttribute()
+    {
+        $id = $this->youtube_id;
+        return $id ? "https://www.youtube.com/embed/{$id}" : $this->file_path;
+    }
+
+    // URL watch (buka di tab baru)
+    public function getYoutubeWatchAttribute()
+    {
+        $id = $this->youtube_id;
+        return $id ? "https://www.youtube.com/watch?v={$id}" : $this->file_path;
+    }
+
+    // Thumbnail YouTube
+    public function getYoutubeThumbnailAttribute()
+    {
+        $id = $this->youtube_id;
+        return $id ? "https://img.youtube.com/vi/{$id}/hqdefault.jpg" : null;
     }
 }

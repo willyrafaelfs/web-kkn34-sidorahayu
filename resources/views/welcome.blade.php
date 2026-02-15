@@ -42,7 +42,7 @@
 <section id="proker" class="container py-5">
     <div class="text-center mb-5">
         <P><h2 class="fw-bold">Fokus Program Kerja</h2></P>
-        <p class="text-muted">Dua pilar utama pengabdian kami di Desa Sidorahayu.</p>
+        <p class="text-muted text-nowrap">Dua pilar utama pengabdian kami di Desa Sidorahayu.</p>
     </div>
 
     <div class="row g-4">
@@ -160,19 +160,18 @@
         <div class="row g-2">
             @foreach($galleries->take(4) as $gallery)
                 <div class="col-md-3 col-6">
-                    
-                    {{-- Logika Pintar: Cek Tipe Sumber DULU --}}
-                    
-                    @if($gallery->file_type == 'link')
-                        <div class="ratio ratio-1x1">
-                            {{-- Kita pakai str_replace manual disini biar aman kalau Accessor belum dibuat --}}
-                            <iframe src="{{ str_replace('watch?v=', 'embed/', $gallery->file_path) }}" class="rounded shadow-sm" allowfullscreen></iframe>
+                    @if($gallery->file_type == 'link' && $gallery->youtube_id)
+                        <div class="ratio ratio-1x1 position-relative">
+                            <a href="#" class="open-video d-block" data-bs-toggle="modal" data-bs-target="#videoModal" data-src="{{ $gallery->youtube_embed }}">
+                                <img src="{{ $gallery->youtube_thumbnail }}" class="rounded shadow-sm w-100 h-100 object-fit-cover" alt="{{ $gallery->title }}">
+                                <span class="position-absolute top-50 start-50 translate-middle">
+                                    <i class="bi bi-play-circle-fill" style="font-size:36px; color:rgba(255,255,255,0.9)"></i>
+                                </span>
+                            </a>
                         </div>
 
                     @elseif($gallery->file_type == 'upload')
-                        
                         @php
-                            // Cek akhiran file (mp4, jpg, dll)
                             $ext = pathinfo($gallery->file_path, PATHINFO_EXTENSION);
                         @endphp
 
@@ -180,23 +179,63 @@
                             <div class="ratio ratio-1x1">
                                 <video src="{{ asset('storage/'.$gallery->file_path) }}" class="rounded shadow-sm object-fit-cover w-100 h-100 bg-dark" controls></video>
                             </div>
-                        
                         @else
                             <div class="ratio ratio-1x1">
                                 <img src="{{ asset('storage/'.$gallery->file_path) }}" class="rounded shadow-sm object-fit-cover w-100 h-100" alt="{{ $gallery->title }}">
                             </div>
                         @endif
-
+                    @else
+                        {{-- non-YouTube link atau unknown: tampilkan link langsung --}}
+                        <div class="ratio ratio-1x1">
+                            <a href="{{ $gallery->file_path }}" target="_blank" rel="noopener noreferrer">
+                                <img src="{{ $gallery->youtube_thumbnail ?? asset('storage/'.$gallery->file_path) }}" class="rounded shadow-sm w-100 h-100 object-fit-cover" alt="{{ $gallery->title }}">
+                            </a>
+                        </div>
                     @endif
-
                 </div>
             @endforeach
         </div>
+
         <div class="mt-4">
             <a href="{{ route('gallery') }}" class="btn btn-dark">Lihat Galeri Lengkap</a>
         </div>
     </div>
 </section>
+
+{{-- Modal Bootstrap (letakkan sekali di layout atau di bawah section ini) --}}
+<div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0">
+        <div class="ratio ratio-16x9">
+          <iframe id="videoIframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var videoModal = document.getElementById('videoModal');
+    var iframe = document.getElementById('videoIframe');
+
+    document.querySelectorAll('.open-video').forEach(function(el){
+        el.addEventListener('click', function(e){
+            e.preventDefault();
+            var src = this.getAttribute('data-src');
+            iframe.src = src + '?rel=0&modestbranding=1&autoplay=1';
+        });
+    });
+
+    videoModal.addEventListener('hidden.bs.modal', function () {
+        iframe.src = '';
+    });
+});
+</script>
+@endpush
+
 
 <section id="kontak" class="py-5 bg-white border-top">
     <div class="container">

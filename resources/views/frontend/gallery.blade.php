@@ -9,39 +9,43 @@
 
     <div class="row g-4">
         @foreach($galleries as $gallery)
-    <div class="col-md-4 col-sm-6">
-        <div class="card h-100 border-0 shadow-sm">
-            
-            @php
-                $extension = pathinfo($gallery->file_path, PATHINFO_EXTENSION);
-            @endphp
+            <div class="col-md-4 col-sm-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    @php
+                        $extension = pathinfo($gallery->file_path, PATHINFO_EXTENSION);
+                    @endphp
 
-            @if($gallery->file_type == 'link')
-                <div class="ratio ratio-16x9">
-                    <iframe src="{{ $gallery->youtube_embed }}" allowfullscreen class="rounded-top"></iframe>
+                    @if($gallery->file_type == 'link' && $gallery->youtube_id)
+                        <div class="ratio ratio-16x9">
+                            <iframe
+                                src="{{ $gallery->youtube_embed }}?rel=0&modestbranding=1"
+                                class="rounded-top"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                                loading="lazy"></iframe>
+                        </div>
+
+                    @elseif(in_array(strtolower($extension), ['mp4', 'mov', 'avi']))
+                        <div class="ratio ratio-16x9">
+                            <video controls class="rounded-top object-fit-cover w-100 h-100">
+                                <source src="{{ asset('storage/'.$gallery->file_path) }}" type="video/mp4">
+                                Browser Anda tidak mendukung tag video.
+                            </video>
+                        </div>
+
+                    @else
+                        <a href="{{ asset('storage/'.$gallery->file_path) }}" target="_blank" rel="noopener noreferrer">
+                            <img src="{{ asset('storage/'.$gallery->file_path) }}" class="card-img-top" style="height: 250px; object-fit: cover;" alt="{{ $gallery->title }}">
+                        </a>
+                    @endif
+
+                    <div class="card-body">
+                        <h6 class="card-title">{{ $gallery->title }}</h6>
+                        <p class="card-text text-muted small">{{ $gallery->description }}</p>
+                    </div>
                 </div>
-
-            @elseif(in_array(strtolower($extension), ['mp4', 'mov', 'avi']))
-                 <div class="ratio ratio-16x9">
-                    <video controls class="rounded-top object-fit-cover">
-                        <source src="{{ asset('storage/'.$gallery->file_path) }}" type="video/mp4">
-                        Browser Anda tidak mendukung tag video.
-                    </video>
-                </div>
-
-            @else
-                <a href="{{ asset('storage/'.$gallery->file_path) }}" target="_blank">
-                    <img src="{{ asset('storage/'.$gallery->file_path) }}" class="card-img-top" style="height: 250px; object-fit: cover;">
-                </a>
-            @endif
-
-            <div class="card-body">
-                <h6 class="card-title">{{ $gallery->title }}</h6>
-                <p class="card-text text-muted small">{{ $gallery->description }}</p>
             </div>
-        </div>
-    </div>
-@endforeach
+        @endforeach
     </div>
 </div>
 @endsection
