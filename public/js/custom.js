@@ -1759,3 +1759,375 @@ if (galleryItems.length > 0) {
     
     console.log('✨ Gallery page enhanced with Nature & Gold theme');
 }
+
+// ===== PROGRAM KERJA PAGE JAVASCRIPT =====
+// Tambahkan ini di dalam document.addEventListener('DOMContentLoaded', function() { ... });
+
+// ===== 58. PROGRAM SPECIFIC ANIMATIONS =====
+const programCards = document.querySelectorAll('.row .col-md-4 .card');
+const heroSection = document.querySelector('.bg-light.py-5.mb-5');
+
+if (programCards.length > 0) {
+    
+    // ===== 58.1 Add hover sound effect (optional) =====
+    programCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-15px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+    
+    // ===== 58.2 Add reading time indicator =====
+    function addReadingTime() {
+        programCards.forEach(card => {
+            const text = card.querySelector('.card-text')?.textContent || '';
+            const words = text.split(' ').length;
+            const readingTime = Math.ceil(words / 200); // 200 words per minute
+            
+            if (readingTime > 0) {
+                const timeBadge = document.createElement('small');
+                timeBadge.className = 'text-muted d-block mt-2';
+                timeBadge.style.fontSize = '0.75rem';
+                timeBadge.innerHTML = `<i class="bi bi-clock me-1"></i> ${readingTime} menit baca`;
+                card.querySelector('.card-body').appendChild(timeBadge);
+            }
+        });
+    }
+    
+    // ===== 58.3 Add category badge to cards =====
+    function addCategoryBadge() {
+        const categoryName = document.querySelector('h1.fw-bold')?.textContent || '';
+        
+        programCards.forEach(card => {
+            const badge = document.createElement('span');
+            badge.className = 'badge';
+            badge.style.position = 'absolute';
+            badge.style.top = '15px';
+            badge.style.right = '15px';
+            badge.style.zIndex = '10';
+            badge.style.background = 'linear-gradient(135deg, var(--gold), var(--nature-green))';
+            badge.style.color = 'white';
+            badge.style.padding = '0.3rem 1rem';
+            badge.style.borderRadius = 'var(--rounded-full)';
+            badge.style.fontSize = '0.75rem';
+            badge.style.fontWeight = '600';
+            badge.style.boxShadow = '0 3px 10px rgba(0,0,0,0.2)';
+            badge.textContent = categoryName;
+            
+            card.style.position = 'relative';
+            card.appendChild(badge);
+        });
+    }
+    
+    // ===== 58.4 Add share buttons =====
+    function addShareButtons() {
+        programCards.forEach(card => {
+            const shareContainer = document.createElement('div');
+            shareContainer.className = 'd-flex gap-2 mt-3';
+            shareContainer.style.opacity = '0';
+            shareContainer.style.transition = 'opacity 0.3s';
+            
+            const title = card.querySelector('.card-title a')?.textContent || '';
+            const url = card.querySelector('.card-title a')?.href || window.location.href;
+            
+            shareContainer.innerHTML = `
+                <button class="btn btn-sm btn-outline-success" onclick="shareProgram('facebook', '${encodeURIComponent(url)}', '${encodeURIComponent(title)}')">
+                    <i class="bi bi-facebook"></i>
+                </button>
+                <button class="btn btn-sm btn-outline-info" onclick="shareProgram('twitter', '${encodeURIComponent(url)}', '${encodeURIComponent(title)}')">
+                    <i class="bi bi-twitter"></i>
+                </button>
+                <button class="btn btn-sm btn-outline-success" onclick="shareProgram('whatsapp', '${encodeURIComponent(url)}', '${encodeURIComponent(title)}')">
+                    <i class="bi bi-whatsapp"></i>
+                </button>
+            `;
+            
+            card.querySelector('.card-body').appendChild(shareContainer);
+            
+            card.addEventListener('mouseenter', () => {
+                shareContainer.style.opacity = '1';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                shareContainer.style.opacity = '0';
+            });
+        });
+    }
+    
+    // ===== 58.5 Share function =====
+    window.shareProgram = function(platform, url, title) {
+        const decodedUrl = decodeURIComponent(url);
+        const decodedTitle = decodeURIComponent(title);
+        
+        let shareUrl = '';
+        
+        switch(platform) {
+            case 'facebook':
+                shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(decodedUrl)}`;
+                break;
+            case 'twitter':
+                shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(decodedUrl)}&text=${encodeURIComponent(decodedTitle)}`;
+                break;
+            case 'whatsapp':
+                shareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(decodedTitle + ' ' + decodedUrl)}`;
+                break;
+        }
+        
+        if (shareUrl) {
+            window.open(shareUrl, '_blank', 'width=600,height=400');
+        }
+    };
+    
+    // ===== 59. HERO SECTION INTERACTIONS =====
+    if (heroSection) {
+        
+        // ===== 59.1 Parallax effect =====
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            if (scrolled < 500) {
+                heroSection.style.backgroundPositionY = `${scrolled * 0.5}px`;
+            }
+        });
+        
+        // ===== 59.2 Typewriter effect for description =====
+        const leadText = heroSection.querySelector('.lead');
+        if (leadText && !leadText.hasAttribute('data-enhanced')) {
+            leadText.setAttribute('data-enhanced', 'true');
+            
+            // Add subtle highlight animation
+            leadText.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.02)';
+                this.style.boxShadow = 'var(--shadow-hover)';
+            });
+            
+            leadText.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+                this.style.boxShadow = 'var(--shadow-sm)';
+            });
+        }
+    }
+    
+    // ===== 60. PAGINATION ENHANCEMENT =====
+    const pagination = document.querySelector('.mt-4 .pagination');
+    
+    if (pagination) {
+        
+        // ===== 60.1 Add pagination info =====
+        const activePage = pagination.querySelector('.active .page-link');
+        if (activePage) {
+            const totalPages = pagination.querySelectorAll('.page-item:not(.disabled)').length - 2; // Exclude prev/next
+            const currentPage = activePage.textContent;
+            
+            const infoEl = document.createElement('div');
+            infoEl.className = 'pagination-info';
+            infoEl.innerHTML = `
+                <i class="bi bi-layers me-1"></i>
+                Halaman ${currentPage} dari ${totalPages}
+            `;
+            
+            pagination.parentNode.appendChild(infoEl);
+        }
+        
+        // ===== 60.2 Smooth scroll on page change =====
+        pagination.querySelectorAll('.page-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (!this.parentElement.classList.contains('disabled') && 
+                    !this.parentElement.classList.contains('active')) {
+                    
+                    // Show loading indicator
+                    const loader = document.createElement('div');
+                    loader.className = 'text-center my-3';
+                    loader.innerHTML = '<div class="spinner-border text-success" role="status"><span class="visually-hidden">Loading...</span></div>';
+                    document.querySelector('.container.pb-5').insertBefore(loader, document.querySelector('.row'));
+                    
+                    setTimeout(() => loader.remove(), 1000);
+                    
+                    // Smooth scroll to top of program section
+                    window.scrollTo({
+                        top: heroSection.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    }
+    
+    // ===== 61. IMAGE ERROR HANDLING =====
+    document.querySelectorAll('.card-img-top, .img-fluid').forEach(img => {
+        img.addEventListener('error', function() {
+            this.src = 'https://placehold.co/600x400?text=Gambar+Tidak+Tersedia';
+            this.alt = 'Image not available';
+        });
+    });
+    
+    // ===== 62. LAZY LOAD IMAGES =====
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.classList.add('loaded');
+                    }
+                    observer.unobserve(img);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.card-img-top[data-src], .img-fluid[data-src]').forEach(img => {
+            imageObserver.observe(img);
+        });
+    }
+    
+    // ===== 63. PROGRAM COUNTER =====
+    function addProgramCounter() {
+        const totalPrograms = programCards.length;
+        
+        const counterEl = document.createElement('div');
+        counterEl.className = 'text-center mb-4';
+        counterEl.style.position = 'relative';
+        counterEl.innerHTML = `
+            <div class="d-inline-block px-4 py-2 rounded-pill" style="background: linear-gradient(135deg, var(--nature-green-soft), var(--gold-soft));">
+                <i class="bi bi-grid-3x3-gap-fill me-2" style="color: var(--nature-green);"></i>
+                <span style="color: var(--text-dark); font-weight: 600;">${totalPrograms} Program Kerja</span>
+            </div>
+        `;
+        
+        const sectionTitle = document.querySelector('.container.pb-5 h3');
+        if (sectionTitle) {
+            sectionTitle.parentNode.insertBefore(counterEl, sectionTitle.nextSibling);
+        }
+    }
+    
+    // ===== 64. KEYBOARD NAVIGATION =====
+    document.addEventListener('keydown', function(e) {
+        // Press 'p' to go to previous page if pagination exists
+        if (e.key === 'p' && !e.ctrlKey && !e.target.matches('input, textarea')) {
+            const prevLink = document.querySelector('.page-item:not(.disabled) .page-link[rel="prev"]');
+            if (prevLink) {
+                prevLink.click();
+            }
+        }
+        
+        // Press 'n' to go to next page
+        if (e.key === 'n' && !e.ctrlKey && !e.target.matches('input, textarea')) {
+            const nextLink = document.querySelector('.page-item:not(.disabled) .page-link[rel="next"]');
+            if (nextLink) {
+                nextLink.click();
+            }
+        }
+    });
+    
+    // ===== 65. TRUNCATE TEXT HANDLER =====
+    function checkTruncate() {
+        document.querySelectorAll('.card-text').forEach(el => {
+            if (el.scrollHeight > el.clientHeight) {
+                el.setAttribute('title', el.textContent);
+            }
+        });
+        
+        document.querySelectorAll('.card-title a').forEach(el => {
+            if (el.scrollWidth > el.clientWidth) {
+                el.setAttribute('title', el.textContent);
+            }
+        });
+    }
+    
+    // ===== 66. SCROLL PROGRESS INDICATOR =====
+    function addScrollProgress() {
+        const progressBar = document.createElement('div');
+        progressBar.className = 'scroll-progress';
+        progressBar.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--nature-green), var(--gold));
+            z-index: 9999;
+            width: 0%;
+            transition: width 0.1s;
+        `;
+        
+        document.body.appendChild(progressBar);
+        
+        window.addEventListener('scroll', () => {
+            const winScroll = document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + '%';
+        });
+    }
+    
+    // ===== 67. INITIALIZE ALL FEATURES =====
+    
+    // Add reading time
+    addReadingTime();
+    
+    // Add category badge
+    addCategoryBadge();
+    
+    // Add share buttons
+    addShareButtons();
+    
+    // Add program counter
+    addProgramCounter();
+    
+    // Check truncate
+    checkTruncate();
+    
+    // Add scroll progress
+    addScrollProgress();
+    
+    // Resize handler
+    window.addEventListener('resize', checkTruncate);
+    
+    // ===== 68. PROGRAM SPECIFIC THEMES =====
+    const urlPath = window.location.pathname;
+    
+    if (urlPath.includes('hidroponik')) {
+        document.documentElement.style.setProperty('--nature-green', '#2e7d5e');
+        document.documentElement.style.setProperty('--nature-green-soft', '#e2f0e9');
+        
+        // Add hidroponik icon to hero
+        const heroIcon = document.createElement('div');
+        heroIcon.className = 'text-center mb-3';
+        heroIcon.innerHTML = '<i class="bi bi-droplet" style="font-size: 3rem; color: var(--nature-green); opacity: 0.3;"></i>';
+        heroSection?.insertBefore(heroIcon, heroSection.querySelector('h1'));
+        
+    } else if (urlPath.includes('sekolah')) {
+        document.documentElement.style.setProperty('--gold', '#d4af37');
+        document.documentElement.style.setProperty('--gold-soft', '#fcf5e6');
+        
+        // Add school icon to hero
+        const heroIcon = document.createElement('div');
+        heroIcon.className = 'text-center mb-3';
+        heroIcon.innerHTML = '<i class="bi bi-backpack" style="font-size: 3rem; color: var(--gold); opacity: 0.3;"></i>';
+        heroSection?.insertBefore(heroIcon, heroSection.querySelector('h1'));
+    }
+    
+    // ===== 69. PRINT BUTTON =====
+    function addPrintButton() {
+        const printBtn = document.createElement('button');
+        printBtn.className = 'btn btn-sm btn-outline-secondary position-fixed';
+        printBtn.style.bottom = '100px';
+        printBtn.style.right = '100px';
+        printBtn.style.zIndex = '999';
+        printBtn.innerHTML = '<i class="bi bi-printer me-1"></i> Cetak';
+        printBtn.onclick = () => window.print();
+        
+        document.body.appendChild(printBtn);
+        
+        // Hide on small screens
+        if (window.innerWidth < 768) {
+            printBtn.style.display = 'none';
+        }
+    }
+    
+    addPrintButton();
+    
+    console.log('✨ Program Kerja page enhanced with Nature & Gold theme');
+}

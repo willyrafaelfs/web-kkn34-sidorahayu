@@ -2271,3 +2271,457 @@ footer hr {
         border: 1px solid #ddd !important;
     }
 }
+
+/* ===== PROGRAM KERJA PAGE STYLES ===== */
+/* Tambahkan ini di bagian bawah file custom.css yang sudah ada */
+
+/* ===== HERO SECTION ===== */
+.bg-light.py-5.mb-5 {
+    background: linear-gradient(135deg, var(--nature-green-soft), var(--gold-soft)) !important;
+    position: relative;
+    overflow: hidden;
+    padding: 4rem 0 !important;
+}
+
+.bg-light.py-5.mb-5::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+    animation: rotate 30s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.bg-light.py-5.mb-5 .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Hero Title */
+.bg-light.py-5.mb-5 h1.fw-bold {
+    font-size: 3.5rem;
+    font-weight: 800 !important;
+    color: var(--nature-green-dark);
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem !important;
+    padding-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.bg-light.py-5.mb-5 h1.fw-bold::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--nature-green), var(--gold));
+    border-radius: 4px;
+    animation: widthPulse 2s infinite;
+}
+
+@keyframes widthPulse {
+    0%, 100% { width: 80px; opacity: 0.7; }
+    50% { width: 120px; opacity: 1; }
+}
+
+/* Hero Description */
+.bg-light.py-5.mb-5 .lead {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+    font-weight: 400;
+    position: relative;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: var(--rounded-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* Hero Image */
+.bg-light.py-5.mb-5 .img-fluid {
+    border-radius: var(--rounded-lg) !important;
+    box-shadow: var(--shadow-hover) !important;
+    transition: var(--transition);
+    max-height: 400px;
+    width: 100%;
+    object-fit: cover;
+    border: 4px solid transparent;
+    background: linear-gradient(135deg, var(--nature-green), var(--gold)) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+}
+
+.bg-light.py-5.mb-5 .img-fluid:hover {
+    transform: scale(1.02) translateY(-5px);
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3) !important;
+}
+
+/* ===== SECTION HEADER ===== */
+.container.pb-5 h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--nature-green);
+    margin-bottom: 1.5rem !important;
+    padding-bottom: 0.75rem !important;
+    position: relative;
+    display: inline-block;
+}
+
+.container.pb-5 h3.border-bottom {
+    border-bottom: 2px solid transparent !important;
+    background-image: linear-gradient(90deg, var(--nature-green), var(--gold));
+    background-size: 0% 3px;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    transition: background-size 0.5s ease;
+}
+
+.container.pb-5 h3.border-bottom:hover {
+    background-size: 100% 3px;
+}
+
+/* ===== PROGRAM CARDS ===== */
+.row .col-md-4 .card {
+    border: none !important;
+    border-radius: var(--rounded-lg) !important;
+    overflow: hidden;
+    background: white;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+}
+
+.row .col-md-4 .card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Card Image */
+.row .col-md-4 .card-img-top {
+    height: 200px !important;
+    object-fit: cover;
+    transition: var(--transition);
+    position: relative;
+}
+
+.row .col-md-4 .card:hover .card-img-top {
+    transform: scale(1.1);
+}
+
+/* Image Overlay with Icon */
+.row .col-md-4 .card {
+    position: relative;
+    overflow: hidden;
+}
+
+.row .col-md-4 .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(135deg, rgba(46, 125, 94, 0.3), rgba(212, 175, 55, 0.3));
+    opacity: 0;
+    transition: var(--transition);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.row .col-md-4 .card:hover::before {
+    opacity: 1;
+}
+
+/* Date Badge */
+.row .col-md-4 .card .text-muted:first-of-type {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: linear-gradient(135deg, var(--nature-green-soft), var(--gold-soft));
+    border-radius: var(--rounded-full);
+    color: var(--text-dark) !important;
+    font-weight: 500;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.row .col-md-4 .card .text-muted i {
+    margin-right: 0.3rem;
+    color: var(--gold);
+}
+
+/* Card Body */
+.row .col-md-4 .card-body {
+    padding: 1.5rem !important;
+    position: relative;
+    z-index: 2;
+    background: white;
+}
+
+/* Card Title */
+.row .col-md-4 .card-title {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.75rem !important;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.row .col-md-4 .card-title a {
+    color: var(--text-dark) !important;
+    transition: var(--transition);
+    text-decoration: none !important;
+    position: relative;
+    display: inline-block;
+}
+
+.row .col-md-4 .card-title a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--nature-green), var(--gold));
+    transition: width 0.3s;
+}
+
+.row .col-md-4 .card:hover .card-title a {
+    color: var(--nature-green) !important;
+}
+
+.row .col-md-4 .card:hover .card-title a::after {
+    width: 100%;
+}
+
+/* Card Text */
+.row .col-md-4 .card-text {
+    color: var(--text-muted) !important;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.row .col-md-4 .card:hover::after {
+    bottom: 0;
+}
+
+/* ===== EMPTY STATE ===== */
+.col-12.text-center.py-5 {
+    background: linear-gradient(135deg, var(--nature-green-soft), var(--gold-soft));
+    border-radius: var(--rounded-lg);
+    padding: 4rem 2rem !important;
+    margin: 2rem 0;
+}
+
+.col-12.text-center .text-muted {
+    color: var(--text-dark) !important;
+    font-size: 1.2rem;
+    font-weight: 500;
+    position: relative;
+}
+
+.col-12.text-center .text-muted::before {
+    content: '📋';
+    display: block;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.7;
+}
+
+/* ===== PAGINATION STYLES ===== */
+.mt-4 .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.3rem;
+    margin-top: 2rem;
+}
+
+.mt-4 .pagination .page-item {
+    margin: 0 3px;
+}
+
+.mt-4 .pagination .page-link {
+    border: none !important;
+    border-radius: var(--rounded-full) !important;
+    padding: 0.7rem 1.2rem;
+    color: var(--text-dark);
+    background: white;
+    font-weight: 500;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+    min-width: 45px;
+    text-align: center;
+}
+
+.mt-4 .pagination .page-link:hover {
+    background: linear-gradient(135deg, var(--nature-green-soft), var(--gold-soft));
+    color: var(--nature-green);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+.mt-4 .pagination .page-item.active .page-link {
+    background: linear-gradient(135deg, var(--nature-green), var(--gold));
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+.mt-4 .pagination .page-item.disabled .page-link {
+    background: #f8f9fa;
+    color: #adb5bd;
+    pointer-events: none;
+}
+
+/* Pagination Info */
+.pagination-info {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    font-weight: 400;
+}
+
+/* ===== PROGRAM SPECIFIC STYLES ===== */
+/* Hidroponik Theme */
+@if($category->slug == 'proker-hidroponik') {
+    .bg-light.py-5.mb-5 {
+        background: linear-gradient(135deg, #e2f0e9, #d4ede4) !important;
+    }
+}
+
+/* Sekolah Theme */
+@if($category->slug == 'proker-sekolah') {
+    .bg-light.py-5.mb-5 {
+        background: linear-gradient(135deg, #fcf5e6, #faf3dd) !important;
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+    .bg-light.py-5.mb-5 h1.fw-bold {
+        font-size: 2.8rem;
+    }
+    
+    .bg-light.py-5.mb-5 .lead {
+        font-size: 1.2rem;
+        padding: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .bg-light.py-5.mb-5 {
+        padding: 3rem 0 !important;
+    }
+    
+    .bg-light.py-5.mb-5 h1.fw-bold {
+        font-size: 2.2rem;
+    }
+    
+    .bg-light.py-5.mb-5 .lead {
+        font-size: 1.1rem;
+        padding: 1rem;
+    }
+    
+    .container.pb-5 h3 {
+        font-size: 1.8rem;
+    }
+    
+    .row .col-md-4 .card-img-top {
+        height: 180px !important;
+    }
+    
+    .row .col-md-4 .card-title {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .bg-light.py-5.mb-5 h1.fw-bold {
+        font-size: 1.8rem;
+    }
+    
+    .bg-light.py-5.mb-5 .lead {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+    
+    .container.pb-5 h3 {
+        font-size: 1.5rem;
+    }
+    
+    .mt-4 .pagination .page-link {
+        padding: 0.5rem 1rem;
+        min-width: 40px;
+        font-size: 0.9rem;
+    }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+    .bg-light.py-5.mb-5 {
+        background: none !important;
+        padding: 1rem 0 !important;
+    }
+    
+    .row .col-md-4 .card {
+        break-inside: avoid;
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+    }
+    
+    .row .col-md-4 .card::after {
+        display: none;
+    }
+    
+    .mt-4 .pagination {
+        display: none !important;
+    }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.row .col-md-4 {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+.row .col-md-4:nth-child(1) { animation-delay: 0.1s; }
+.row .col-md-4:nth-child(2) { animation-delay: 0.2s; }
+.row .col-md-4:nth-child(3) { animation-delay: 0.3s; }
+.row .col-md-4:nth-child(4) { animation-delay: 0.4s; }
+.row .col-md-4:nth-child(5) { animation-delay: 0.5s; }
+.row .col-md-4:nth-child(6) { animation-delay: 0.6s; }
