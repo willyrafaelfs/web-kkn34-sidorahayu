@@ -34,7 +34,7 @@ class PostController extends Controller
             'title' => 'required|max:255',
             'category_id' => 'required',
             'body' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg|max:2048', // Maksimal 2MB
+            'image' => 'image|mimes:jpeg,png,jpg|max:10240', // Maksimal 10MB
         ]);
 
         // 2. Handle Upload Gambar

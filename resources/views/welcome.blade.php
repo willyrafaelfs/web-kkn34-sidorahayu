@@ -158,7 +158,7 @@
     <div class="container text-center">
         <h2 class="mb-4 fw-bold">Galeri Kegiatan</h2>
         <div class="row g-2">
-            @foreach($galleries->take(4) as $gallery)
+            @foreach($galleries->take(5) as $gallery)
                 <div class="col-md-3 col-6">
                     @if($gallery->file_type == 'link' && $gallery->youtube_id)
                         <div class="ratio ratio-1x1 position-relative">
