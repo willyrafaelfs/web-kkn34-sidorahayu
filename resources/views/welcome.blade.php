@@ -25,8 +25,8 @@
                 <source src="{{ $sets['hero_video'] ? asset('storage/'.$sets['hero_video']) : 'https://www.w3schools.com/html/mov_bbb.mp4' }}" type="video/mp4">
             </video>
             <div class="carousel-caption d-none d-md-block pb-5">
-                <h1 class="display-4 fw-bold">Potensi Hidroponik Desa</h1>
-                <p class="lead">Mewujudkan ketahanan pangan mandiri melalui teknologi pertanian modern.</p>
+                <h1 class="display-4 fw-bold">POTENSI HIDROPONIK DESA</h1>
+                <p class="lead">MEWUJUDKAN KETAHANAN PANGAN MANDIRI MELALUI TEKNOLOGI PERTANIAN MODERN.</p>
             </div>
         </div>
     </div>
