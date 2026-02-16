@@ -3,8 +3,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ $title ?? 'KKN 34 Sidorahayu' }}</title>
+    <title>KKN Kelompok 34 Desa Sidorahayu - Official Website</title>
+    <meta name="description" content="Website resmi KKN Kelompok 34 Desa Sidorahayu 2026. Informasi program kerja, profil desa, dan dokumentasi pengabdian masyarakat.">
+    <link rel="icon" href="{{ asset('images/Modern Identitas Logo Kuliah Kerja Nyata.png') }}">
     
+    <meta property="og:title" content="{{ $title ?? 'KKN 34 Sidorahayu' }}">
+    <meta property="og:description" content="Mengabdi dengan hati di Desa Sidorahayu. Membangun desa, memajukan bangsa bersama KKN Kelompok 34.">
+    <meta property="og:image" content="{{ asset('images/Modern Identitas Logo Kuliah Kerja Nyata.png') }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:type" content="website">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     

@@ -4,7 +4,7 @@
 <div class="container py-5">
     <div class="text-center mb-5">
         <h1>Sapa Kami</h1>
-        <p>Silakan tinggalkan pesan kesan untuk KKN Kelompok 34.</p>
+        <p class="text muted text-nowrap">Silakan tinggalkan pesan kesan untuk KKN Kelompok 34.</p>
     </div>
 
     <div class="row justify-content-center">
