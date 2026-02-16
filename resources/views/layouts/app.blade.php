@@ -146,7 +146,7 @@
                         </li>
                         <li class="mb-2">
                             <i class="bi bi-whatsapp me-2 text-success"></i> 
-                            <a href="https://wa.me/6282267039811" class="text-white text-decoration-none">08 berapa dek?</a>
+                            <a href="https://wa.me/6282267039811" class="text-white text-decoration-none">+62 822-6703-9811</a>
                         </li>
                         <li class="mb-2">
                             <i class="bi bi-geo-alt me-2 text-danger"></i> 
@@ -158,10 +158,10 @@
         Designed & Developed by
         <i class="bi bi-heart-fill text-danger heartbeat" 
            style="cursor: help;" 
-           title="Dibuat dengan begadang"></i> 
+           title="Luv u"></i> 
         by 
         <a href="https://www.instagram.com/pistarr.7/?__pwa=1#" target="_blank" class="text-warning text-decoration-none credit-link">
-            Willy Rafael
+            W
         </a>
     </p>
 </div>
