@@ -10,15 +10,17 @@
     <div class="col-lg-8">
         @if($category->slug == 'proker-hidroponik')
             <p class="lead">
-                Fokus utama KKN kami: Mengembangkan pertanian modern.
-                Kegiatan mencakup pembangunan instalasi, pelatihan nutrisi, hingga sosialisasi pemasaran hasil panen selada.
+                Mahasiswa KKN Kelompok 34 melaksanakan program kerja utama berupa pembangunan instalasi hidroponik sistem Deep Flow Technique (DFT) dengan 100 lubang tanam di Dusun Tulusayu, Desa Sidorahayu. Program ini bertujuan untuk memanfaatkan lahan secara efisien serta mendukung ketahanan pangan keluarga.
+                Instalasi dilengkapi dengan sistem aliran nutrisi dan dilakukan pelatihan kepada warga mengenai penggunaan serta peracikan nutrisi AB Mix. Warga juga diberikan pemahaman tentang cara perawatan tanaman agar dapat tumbuh optimal.
+                Melalui program ini, diharapkan masyarakat dapat menghasilkan sayuran sehat secara mandiri sekaligus meningkatkan kesadaran akan pentingnya pertanian ramah lingkungan.
             </p>
             <img src="{{ $sets['proker_hidroponik_banner'] ? asset('storage/'.$sets['proker_hidroponik_banner']) : 'https://placehold.co/800x400' }}" class="img-fluid rounded shadow mt-3">
         
         @elseif($category->slug == 'proker-sekolah')
             <p class="lead">
-                Program pengabdian di SDN Sidorahayu 1. 
-                Fokus pada pembangunan karakter siswa melalui sosialisasi anti-bullying, literasi digital, dan fun learning.
+                Sebagai bentuk dukungan terhadap program hidroponik desa, mahasiswa KKN Kelompok 34 melaksanakan sosialisasi peduli lingkungan dan makanan sehat di SDN 3 Sidorahayu.
+                Siswa diberikan pemahaman mengenai pentingnya menjaga kebersihan lingkungan, manfaat menanam tanaman, serta pentingnya konsumsi sayur untuk kesehatan tubuh. Materi disampaikan secara interaktif agar mudah dipahami dan menarik bagi siswa.
+                Kegiatan ini diharapkan dapat menumbuhkan kesadaran sejak dini tentang pentingnya lingkungan bersih dan pola hidup sehat dalam kehidupan sehari-hari.
             </p>
             <img src="{{ $sets['proker_sekolah_banner'] ? asset('storage/'.$sets['proker_sekolah_banner']) : 'https://placehold.co/800x400' }}" class="img-fluid rounded shadow mt-3">
         

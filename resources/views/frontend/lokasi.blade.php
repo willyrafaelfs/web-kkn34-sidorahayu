@@ -15,22 +15,34 @@
         </div>
     </div>
 
-    <div class="row mt-5">
-        <div class="col-md-4 text-center">
-            <i class="bi bi-geo-alt fs-1 text-danger"></i>
-            <h5 class="mt-3">Alamat Posko</h5>
-            <p>Dusun Tulus Ayu, RT 05 RW 02<br>Desa Sidorahayu, Wagir.</p>
-        </div>
-        <div class="col-md-4 text-center">
-            <i class="bi bi-map fs-1 text-primary"></i>
-            <h5 class="mt-3">Jarak dari Kampus</h5>
-            <p>± 7 Kilometer<br>(Sekitar 15 menit perjalanan)</p>
-        </div>
-        <div class="col-md-4 text-center">
-            <i class="bi bi-pin-map fs-1 text-success"></i>
-            <h5 class="mt-3">Program Utama</h5>
-            <p>Tanaman Hidroponik<br>Sosialisasi di SDN 03 Sidorahayu</p>
-        </div>
+<div class="row mt-5">
+    <!-- Tambahkan d-flex & align-items-center agar konten tetap di tengah kolom -->
+    <div class="col-md-4 d-flex flex-column align-items-center mb-4">
+        <i class="bi bi-geo-alt fs-1 text-danger"></i>
+        <h5 class="mt-3">Alamat Posko</h5>
+        <!-- Gunakan style inline atau class khusus untuk justify -->
+        <p style="text-align: justify;">
+            Jl. Bima, Dusun Tulusayu, Sidorahayu, Kec. Wagir, Kota Malang, Jawa Timur 65158.
+        </p>
+    </div>
+
+    <div class="col-md-4 d-flex flex-column align-items-center mb-4">
+        <i class="bi bi-map fs-1 text-primary"></i>
+        <h5 class="mt-3">Jarak dari Kampus</h5>
+        <p style="text-align: justify;">
+            ± 7 Kilometer, ± 15 menit perjalanan dari titik kumpul utama kampus menuju lokasi posko.
+        </p>
+    </div>
+
+    <div class="col-md-4 d-flex flex-column align-items-center mb-4">
+        <i class="bi bi-pin-map fs-1 text-success"></i>
+        <h5 class="mt-3">Program Utama</h5>
+        <p style="text-align: justify;">
+            Implementasi Tanaman Hidroponik serta Sosialisasi di SDN 03 Sidorahayu.
+        </p>
+    </div>
+</div>
+
     </div>
 </div>
 @endsection

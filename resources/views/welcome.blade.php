@@ -14,7 +14,7 @@
             <img src="{{ $sets['hero_image'] ? asset('storage/'.$sets['hero_image']) : 'https://placehold.co/1920x750' }}" class="d-block w-100 h-100 object-fit-cover" alt="Desa Sidorahayu">
             <div class="carousel-caption d-none d-md-block pb-5">
                 <h1 class="display-4 fw-bold">SELAMAT DATANG DI DESA SIDORAHAYU</h1>
-                <p class="lead">MEMBANGUN DIRI🌟, MEMBANGUN DESA🏗️.</p>
+                <p class="lead">MEMBANGUN DESA🏗️, MEMBANGUN DIRI🌟.</p>
                 <a href="#proker" class="btn btn-warning btn-lg mt-3">Lihat Program Kami</a>
             </div>
         </div>
@@ -57,7 +57,7 @@
                             <div class="badge bg-success mb-2">Ekonomi & Pangan</div>
                             <h4 class="card-title fw-bold">Program Hidroponik</h4>
                             <p class="card-text text-muted small">
-                                Pengembangan 100 lubang tanam sistem DFT dan pelatihan nutrisi AB Mix untuk warga oleh bombang.
+                                Inovasi Pertanian Modern: Pengembangan 100 Lubang Tanam Sistem DFT dan Pelatihan Nutrisi AB Mix untuk Warga Desa Sidorahayu.
                             </p>
                             <a href="{{ route('proker.show', 'proker-hidroponik') }}" class="btn btn-outline-success btn-sm stretched-link">
                                 Pelajari Selengkapnya
@@ -79,7 +79,7 @@
                             <div class="badge bg-primary mb-2">Pendidikan</div>
                             <h4 class="card-title fw-bold">Sidorahayu Cerdas</h4>
                             <p class="card-text text-muted small">
-                                Pendampingan belajar, sosialisasi peduli lingkungan, dan makanan sehat di SDN 3 Sidorahayu.
+                                Tanamkan Kepedulian Sejak Dini: Sosialisasi Lingkungan serta Makanan Sehat di SDN 3 Sidorahayu.
                             </p>
                             <a href="{{ route('proker.show', 'proker-sekolah') }}" class="btn btn-outline-primary btn-sm stretched-link">
                                 Pelajari Selengkapnya
@@ -158,7 +158,7 @@
     <div class="container text-center">
         <h2 class="mb-4 fw-bold">Galeri Kegiatan</h2>
         <div class="row g-2">
-            @foreach($galleries->take(5) as $gallery)
+            @foreach($galleries->take(8) as $gallery)
                 <div class="col-md-3 col-6">
                     @if($gallery->file_type == 'link' && $gallery->youtube_id)
                         <div class="ratio ratio-1x1 position-relative">
